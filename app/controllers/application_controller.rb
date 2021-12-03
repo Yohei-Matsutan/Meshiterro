@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   # deviseのactionが実行される前にconfigure_permitted_parematersを実行するよ
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_in_path_for(resource)
+    post_images_path
+  end
+
   # privateだとこのcontroller内だけ、protectedだと他のcontrollerで呼び出されても参照される
   protected
   def configure_permitted_parameters
