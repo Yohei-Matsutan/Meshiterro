@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   # userが削除された時にその投稿も削除できる機能を添えて
   has_many :post_images, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 end
