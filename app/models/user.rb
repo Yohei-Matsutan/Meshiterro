@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :post_images, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+
+  #refile用の呪文
+  attachment :profile_image
 end
