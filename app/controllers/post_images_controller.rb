@@ -8,8 +8,11 @@ class PostImagesController < ApplicationController
     @post_image = PostImage.new(post_image_params)
     # deviseの機能で、current_user(ログイン中のユーザー情報)のidを取得できる
     @post_image.user_id = current_user.id
-    @post_image.save
-    redirect_to post_images_path
+    if @post_image.save
+      redirect_to post_images_path
+    else
+      render :new
+    end
   end
 
   def index
